@@ -1,2 +1,3 @@
 # docker-confident
-Build a local Confident Stack with Docker (on top of docker-openresearch-stack)
+
+Build a local ConfIDent docker image (on top of docker-openresearch-stack)
