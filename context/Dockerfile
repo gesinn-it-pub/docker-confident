@@ -2,7 +2,7 @@
 # docker-confident                   #
 ######################################
 
-ARG OPENRESEARCH_STACK=0.0.1
+ARG OPENRESEARCH_STACK=0.0.2
 FROM ghcr.io/gesinn-it-pub/openresearch-stack:${OPENRESEARCH_STACK}
 
 # Logo
