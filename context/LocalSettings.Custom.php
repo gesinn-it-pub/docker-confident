@@ -4,6 +4,8 @@
 # MediaWiki Settings                 #
 ######################################
 $wgEnableUploads = true;
+$wgGroupPermissions['*']['read'] = true;
+$wgGroupPermissions['*']['edit'] = false;
 
 ######################################
 # Skin Settings                      #
