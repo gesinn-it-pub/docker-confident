@@ -11,5 +11,8 @@ ADD LocalSettings.Custom.php /var/www/html/
 # Media
 COPY media/* /var/www/html/_custom/media/
 
+# Styles
+COPY styles/* /var/www/html/_custom/styles/
+
 # ConfIDentSkin
 # RUN get-github-extension.sh ConfIDentSkin main gesinn-it-pub/confident-skin
