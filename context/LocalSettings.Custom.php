@@ -3,9 +3,30 @@
 ######################################
 # MediaWiki Settings                 #
 ######################################
-$wgEnableUploads = true;
+
+## Group permissions
 $wgGroupPermissions['*']['read'] = true;
 $wgGroupPermissions['*']['edit'] = false;
+
+## Timezone
+$wgLocaltimezone = "Europe/Berlin";
+putenv("TZ=$wgLocaltimezone");
+$wgLocalTZoffset = date("Z") / 60;
+$wgDefaultUserOptions['timecorrection'] = 'ZoneInfo|' . (date("I") ? 120 : 60) . '|Europe/Berlin';
+
+## Default Language UPO
+$wgDefaultUserOptions['language'] = 'en';
+
+## Media
+$wgEnableUploads = true;
+$wgFileExtensions = [ 'png', 'gif', 'jpg', 'jpeg', 'svg', 'webp' ];
+
+## Attaching licensing metadata to pages
+$wgRightsPage = ""; # Set to the title of a wiki page that describes your license/copyright
+$wgRightsUrl = "https://creativecommons.org/licenses/by-sa/2.0/de/";
+$wgRightsText = "CC BY-SA licenses";
+$wgRightsIcon = "https://licensebuttons.net/l/by-sa/2.0/88x31.png";
+
 
 ######################################
 # Skin Settings                      #
@@ -178,3 +199,62 @@ $wgUFAllowedNamespaces[NS_MAIN] = true;
 $wgGroupPermissions["sysop"]["usermerge"] = true;
 $wgGroupPermissions["bureaucrat"]["usermerge"] = true;
 ## ======== UserMerge ========
+
+
+############################################################################
+##    NAMESPACES                                                          ##
+############################################################################
+
+$customNamespaces = [
+	7100 => 'Event_Series',
+	7200 => 'Event',
+];
+
+## Apply Namespaces
+foreach ($customNamespaces as $number => $name) {
+
+	$id = 'NS_' . strtoupper($name);
+
+	define($id, $number);                   // Define namespace
+	define($id . '_TALK', ($number + 1));   // Define talk namespace
+
+	if (isset($wgExtraNamespaces[$number])) {
+		die('Cannot declare namespace number twice: ' . $number . ' for ' . $name);
+	}
+
+	$wgExtraNamespaces[$number] = $name;
+	$wgExtraNamespaces[($number + 1)] = $name . '_Talk';
+
+	$wgContentNamespaces[] = $number;                  // https://www.mediawiki.org/wiki/Manual:$wgContentNamespaces
+	$wgNamespacesToBeSearchedDefault[$number] = true;  // https://www.mediawiki.org/wiki/Manual:$wgNamespacesToBeSearchedDefault
+	$smwgNamespacesWithSemanticLinks[$number] = true;  // https://www.semantic-mediawiki.org/wiki/Help:$smwgNamespacesWithSemanticLinks
+	$wgNamespacesWithSubpages[$number] = true;         // https://www.mediawiki.org/wiki/Manual:$wgNamespacesWithSubpages
+	$egApprovedRevsEnabledNamespaces[$number] = true;  // https://www.mediawiki.org/wiki/Extension:Approved_Revs#Setting_pages_as_approvable
+	$wgUFAllowedNamespaces[$number] = true;            // https://www.mediawiki.org/wiki/Extension:UserFunctions#Allowing_namespaces
+	$wgVisualEditorAvailableNamespaces[$number] = false;    // don't enable VE for semantic:apps namespaces since edit via from is preferred
+}
+
+## Search in File Namespace to show PDFs in search results by default
+$wgNamespacesToBeSearchedDefault[NS_FILE] = true;
+$wgNamespacesToBeSearchedDefault[NS_PROJECT] = true;
+
+## Project
+## There is already a Project Namespace defined by MediaWiki, so we have some special handling here:
+$wgMetaNamespace = "Project";
+
+## Declare common namespaces as semantic
+$smwgNamespacesWithSemanticLinks[2]   = true; // USER
+$smwgNamespacesWithSemanticLinks[4]   = true; // PROJECT
+$wgContentNamespaces[] = 4;
+$wgUFAllowedNamespaces[4] = true;
+$smwgNamespacesWithSemanticLinks[6]   = true; // FILE
+$wgContentNamespaces[] = 6;
+$wgUFAllowedNamespaces[6] = true;
+$smwgNamespacesWithSemanticLinks[10]  = true; // TEMPLATE
+$wgUFAllowedNamespaces[10] = true;
+$smwgNamespacesWithSemanticLinks[12]  = true; // HELP
+$smwgNamespacesWithSemanticLinks[14]  = true; // CATEGORY
+
+$smwgNamespacesWithSemanticLinks[102] = true; // PROPERTY
+$smwgNamespacesWithSemanticLinks[106] = true; // FORM
+$smwgNamespacesWithSemanticLinks[108] = true; // CONCEPT
