@@ -15,32 +15,37 @@ $wgGroupPermissions['*']['edit'] = false;
 
 ## Logo
 $wgLogos = [
-        "1x" => "$wgScriptPath/_custom/media/ConfIDent_Logo.png",
+	"1x" => "$wgScriptPath/_custom/media/ConfIDent_Logo.png",
 ];
 
 ## Footer Icons
 $wgFooterIcons['partner']['TIB'] = [
-        "src" => "$wgScriptPath/_custom/media/TIB_FooterIcon.png",
-        "url" => "https://www.tib.eu/",
-        "alt" =>  "TIB",
-        "height" => "31",
-        "width" => "47"
+	"src" => "$wgScriptPath/_custom/media/TIB_FooterIcon.png",
+	"url" => "https://www.tib.eu/",
+	"alt" =>  "TIB",
+	"height" => "31",
+	"width" => "47"
 ];
 
 $wgFooterIcons['partner']['RWTH'] = [
-        "src" => "$wgScriptPath/_custom/media/RWTH_FooterIcon.png",
-        "url" => "https://www.rwth-aachen.de/",
-        "alt" => "RWTH",
-        "height" => "25",
-        "width" => "92"
+	"src" => "$wgScriptPath/_custom/media/RWTH_FooterIcon.png",
+	"url" => "https://www.rwth-aachen.de/",
+	"alt" => "RWTH",
+	"height" => "25",
+	"width" => "92"
 ];
 
 $wgFooterIcons['partner']['DFG'] = [
-        "src" => "$wgScriptPath/_custom/media/DFG_FooterIcon.png",
-        "url" => "https://www.dfg.de/",
-        "alt" => "DFG",
-        "height" => "30",
-        "width" => "141"
+	"src" => "$wgScriptPath/_custom/media/DFG_FooterIcon.png",
+	"url" => "https://www.dfg.de/",
+	"alt" => "DFG",
+	"height" => "30",
+	"width" => "141"
+];
+
+## Custom Styles
+$egChameleonExternalStyleModules = [
+	__DIR__ . "/_custom/styles/confident.scss",
 ];
 
 
