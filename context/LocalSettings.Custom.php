@@ -66,9 +66,12 @@ $wgFooterIcons['partner']['DFG'] = [
 
 ## Custom Styles
 $egChameleonExternalStyleModules = [
-	__DIR__ . "/_custom/styles/navbar.scss" => 'afterVariables',
 	__DIR__ . "/_custom/styles/confident.scss" => 'afterMain',
 	__DIR__ . "/_custom/styles/extension-JSBreadCrumbs.scss" => 'afterMain',
+	__DIR__ . "/_custom/styles/extension-PageForms.scss" => 'afterMain',
+	__DIR__ . "/_custom/styles/panels.scss" => 'afterMain',
+	__DIR__ . "/_custom/styles/tiles.scss" => 'afterMain',
+	__DIR__ . "/_custom/styles/navbar.scss" => 'afterVariables',
 ];
 
 
