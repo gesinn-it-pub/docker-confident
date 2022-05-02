@@ -1,0 +1,10 @@
+// Navbar items bold
+a.nav-link {
+  font-weight: bold;
+}
+
+// Icons
+$cmln-icons: map-merge((
+        n-Events: fas fa-calendar,
+        n-Event-Series: fas fa-calendar-alt,
+), $cmln-icons);
