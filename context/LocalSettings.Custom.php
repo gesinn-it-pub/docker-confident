@@ -32,7 +32,7 @@ $wgRightsIcon = "https://licensebuttons.net/l/by-sa/2.0/88x31.png";
 # Skin Settings                      #
 ######################################
 
-# wfLoadExtension(' ConfIDentSkin ');
+wfLoadExtension( 'ConfIDentSkin' );
 
 ## Logo
 $wgLogos = [
