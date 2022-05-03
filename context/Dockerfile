@@ -15,7 +15,7 @@ COPY media/* /var/www/html/_custom/media/
 COPY styles/* /var/www/html/_custom/styles/
 
 # ConfIDentSkin
-RUN get-github-extension.sh ConfIDentSkin 1.0.0 gesinn-it-pub/ConfIDentSkin
+RUN get-github-extension.sh ConfIDentSkin 1.0.1 gesinn-it-pub/ConfIDentSkin
 
 ######################################
 # set confident version     		 #
