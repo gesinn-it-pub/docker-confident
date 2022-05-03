@@ -1,12 +1,25 @@
 // First Heading --------------------------------
+// Main Page
+body.page-Main_Page h1#firstHeading {
+  display: none;
+}
+
 // ns-14 (Category)
 body.ns-14 h1#firstHeading {
   //      display: none;
 }
 
-body.ns-14 div#mw-indicators {
-  //      display: none;
+// Hide Resource Loader indicator and help text
+body div#mw-indicators {
+  display: none;
 }
+
+// Lead Text ------------------------------------
+.lead {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
 
 // Spacer ---------------------------------------
 .spacer {

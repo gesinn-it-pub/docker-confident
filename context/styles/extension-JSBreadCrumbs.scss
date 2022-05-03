@@ -1,10 +1,13 @@
 span#mwext-bc {
-  top: 0.8em;
-  padding: 0;
+  top: unset;
+  padding: unset;
+  margin-top: 1em;
+  margin-bottom: 2em;
   background-color: unset;
   border-style: none;
   color: $gray-600;
 }
+
 
 span#mwext-bc > a {
   color: $link-color;
