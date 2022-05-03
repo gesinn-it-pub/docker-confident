@@ -20,6 +20,6 @@ RUN get-github-extension.sh ConfIDentSkin 1.0.2 gesinn-it-pub/ConfIDentSkin
 ######################################
 # set confident version     		 #
 ######################################
-ARG CONFIDENT_VERSION=0.0.10
+ARG CONFIDENT_VERSION=0.0.11
 RUN echo $CONFIDENT_VERSION > confident-version.txt && \
     echo "\$wgConfidentVersion = '$CONFIDENT_VERSION';" >> LocalSettings.Include.php
