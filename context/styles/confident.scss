@@ -37,3 +37,26 @@ body div#mw-indicators {
 .spacer-3 {
   height: 3em;
 }
+
+.spacer-5 {
+  height: 5em;
+}
+
+// neg-margins ----------------------------------
+.neg-margin-row {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+
+// Colors ---------------------------------------
+.background-gray {
+  background-color: $gray-100;
+}
+
+.background-gray-200 {
+  background-color: $gray-200;
+}
