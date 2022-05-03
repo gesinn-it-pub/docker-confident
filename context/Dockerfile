@@ -2,7 +2,7 @@
 # docker-confident                   #
 ######################################
 
-ARG OPENRESEARCH_STACK=0.0.9
+ARG OPENRESEARCH_STACK=0.0.10
 FROM ghcr.io/gesinn-it-pub/openresearch-stack:${OPENRESEARCH_STACK}
 
 # LocalSettings.Custom.php
@@ -15,7 +15,7 @@ COPY media/* /var/www/html/_custom/media/
 COPY styles/* /var/www/html/_custom/styles/
 
 # ConfIDentSkin
-RUN get-github-extension.sh ConfIDentSkin 1.0.1 gesinn-it-pub/ConfIDentSkin
+RUN get-github-extension.sh ConfIDentSkin 1.0.2 gesinn-it-pub/ConfIDentSkin
 
 ######################################
 # set confident version     		 #
