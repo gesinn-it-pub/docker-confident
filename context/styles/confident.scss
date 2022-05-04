@@ -1,3 +1,8 @@
+// No horizontal scroll -------------------------
+body {
+  overflow-x: hidden;
+}
+
 // First Heading --------------------------------
 // Main Page
 body.page-Main_Page h1#firstHeading {
