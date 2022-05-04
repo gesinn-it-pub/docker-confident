@@ -15,11 +15,11 @@ COPY media/* /var/www/html/_custom/media/
 COPY styles/* /var/www/html/_custom/styles/
 
 # ConfIDentSkin
-RUN get-github-extension.sh ConfIDentSkin 1.0.3 gesinn-it-pub/ConfIDentSkin
+RUN get-github-extension.sh ConfIDentSkin 1.0.4 gesinn-it-pub/ConfIDentSkin
 
 ######################################
 # set confident version     		 #
 ######################################
-ARG CONFIDENT_VERSION=0.0.12
+ARG CONFIDENT_VERSION=0.0.13
 RUN echo $CONFIDENT_VERSION > confident-version.txt && \
     echo "\$wgConfidentVersion = '$CONFIDENT_VERSION';" >> LocalSettings.Include.php
