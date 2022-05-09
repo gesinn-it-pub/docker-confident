@@ -15,11 +15,16 @@ COPY media/* /var/www/html/_custom/media/
 COPY styles/* /var/www/html/_custom/styles/
 
 # ConfIDentSkin
-RUN get-github-extension.sh ConfIDentSkin 1.0.5 gesinn-it-pub/ConfIDentSkin
+RUN get-github-extension.sh ConfIDentSkin 1.0.6 gesinn-it-pub/ConfIDentSkin
+
+# Temporarily (until https://github.com/ProfessionalWiki/chameleon/pull/332 merged):
+RUN get-github-extension.sh chameleon 5fa26148d625054047ca2a36f448df3a49939e8a gesinn-it-pub/chameleon && \
+    rm -rf skins/chameleon && \
+    mv extensions/chameleon skins
 
 ######################################
 # set confident version     		 #
 ######################################
-ARG CONFIDENT_VERSION=0.0.14
+ARG CONFIDENT_VERSION=0.0.15
 RUN echo $CONFIDENT_VERSION > confident-version.txt && \
     echo "\$wgConfidentVersion = '$CONFIDENT_VERSION';" >> LocalSettings.Include.php
