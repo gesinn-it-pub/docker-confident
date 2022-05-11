@@ -1,3 +1,10 @@
+BACKSTOP := docker-compose run --rm backstop --config backstop.config.js
+
+all:
+
+.PHONY: ci
+ci: build mysql-up backstop-test down
+
 .PHONY: build
 build:
 	docker build \
@@ -30,8 +37,8 @@ down:
 
 .PHONY: backstop-test
 backstop-test:
-	docker-compose run --rm backstop test
+	$(BACKSTOP) test
 
-.PHONY: clean
-clean: down
-	rm -rf data
+.PHONY: backstop-approve
+backstop-approve:
+	$(BACKSTOP) approve
