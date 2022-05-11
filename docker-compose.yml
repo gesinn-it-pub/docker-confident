@@ -29,10 +29,13 @@ services:
 
   backstop:
     image: backstopjs/backstopjs:6.0.4
-    entrypoint: /src/backstop.sh
     volumes:
       - ./backstop:/src
     links:
       - wiki:wiki.local
     profiles:
       - no-profile
+
+  wait-for-wiki:
+    image: mintel/docker-wait-for-it
+    entrypoint: ['/opt/wait-for-it.sh', 'wiki:80', '-t', '120']

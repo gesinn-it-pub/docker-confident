@@ -1,5 +1,3 @@
-BACKSTOP := docker-compose run --rm backstop --config backstop.config.js
-
 all:
 
 .PHONY: ci
@@ -19,6 +17,10 @@ sqlite-up:
 mysql-up:
 	MYSQL_HOST=mysql docker-compose --profile mysql up -d
 
+.PHONY: wait-for-wiki
+wait-for-wiki:
+	docker-compose run --rm wait-for-wiki
+
 .PHONY: show-status
 show-status:
 	docker-compose ps
@@ -35,8 +37,10 @@ stop:
 down:
 	docker-compose down --volumes --remove-orphans
 
+BACKSTOP := docker-compose run --rm backstop --config backstop.config.js
+
 .PHONY: backstop-test
-backstop-test:
+backstop-test: wait-for-wiki
 	$(BACKSTOP) test
 
 .PHONY: backstop-approve
