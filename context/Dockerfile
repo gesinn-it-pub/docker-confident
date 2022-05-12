@@ -17,10 +17,16 @@ COPY styles/* /var/www/html/_custom/styles/
 # ConfIDentSkin
 RUN get-github-extension.sh ConfIDentSkin 1.0.7 gesinn-it-pub/ConfIDentSkin
 
-# Temporarily (until https://github.com/ProfessionalWiki/chameleon/pull/332 merged):
-RUN get-github-extension.sh chameleon 5fa26148d625054047ca2a36f448df3a49939e8a gesinn-it-pub/chameleon && \
+# Temporarily (until 4.2.0 released):
+RUN get-github-extension.sh chameleon 8dcd3b7200f7fe3259e543173ed6da0a262e8972 ProfessionalWiki/chameleon && \
     rm -rf skins/chameleon && \
     mv extensions/chameleon skins
+
+######################################
+# run as http://localhost:8080		 #
+######################################
+ENV WIKI_DOMAIN=localhost
+ENV WIKI_PORT=8080
 
 ######################################
 # set confident version     		 #
