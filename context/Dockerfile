@@ -15,7 +15,8 @@ COPY media/* /var/www/html/_custom/media/
 COPY styles/* /var/www/html/_custom/styles/
 
 # ConfIDentSkin
-RUN get-github-extension.sh ConfIDentSkin 1.0.7 gesinn-it-pub/ConfIDentSkin
+ARG CONFIDENT_SKIN_VERSION=1.0.7
+RUN get-github-extension.sh ConfIDentSkin $CONFIDENT_SKIN_VERSION gesinn-it-pub/ConfIDentSkin
 
 # Temporarily (until 4.2.0 released):
 RUN get-github-extension.sh chameleon 8dcd3b7200f7fe3259e543173ed6da0a262e8972 ProfessionalWiki/chameleon && \
