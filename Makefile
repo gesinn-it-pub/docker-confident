@@ -5,9 +5,7 @@ ci: build mysql-up backstop-test down
 
 .PHONY: build
 build:
-	docker build \
-	  --tag ghcr.io/gesinn-it-pub/confident:dev \
-	  ./context
+	docker-compose build
 
 .PHONY: sqlite-up
 sqlite-up:
