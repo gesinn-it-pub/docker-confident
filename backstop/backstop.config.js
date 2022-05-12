@@ -19,7 +19,7 @@ const screen = {
 
 const scenario = (config) => ({
 	// there are lazily loaded images (CC license button); the following delay helps:
-	delay: 200,
+	delay: 500,
 	// hide "This page was last edited on ..."
 	hideSelectors: ["div#footer-info div"],
 	...config
