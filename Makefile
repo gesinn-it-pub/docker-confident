@@ -1,8 +1,11 @@
+all:
+
+.PHONY: ci
+ci: build mysql-up backstop-test down
+
 .PHONY: build
 build:
-	docker build \
-	  --tag ghcr.io/gesinn-it-pub/confident:dev \
-	  ./context
+	docker-compose build
 
 .PHONY: sqlite-up
 sqlite-up:
@@ -11,6 +14,10 @@ sqlite-up:
 .PHONY: mysql-up
 mysql-up:
 	MYSQL_HOST=mysql docker-compose --profile mysql up -d
+
+.PHONY: wait-for-wiki
+wait-for-wiki:
+	docker-compose run --rm wait-for-wiki
 
 .PHONY: show-status
 show-status:
@@ -28,10 +35,12 @@ stop:
 down:
 	docker-compose down --volumes --remove-orphans
 
-.PHONY: backstop-test
-backstop-test:
-	docker-compose run --rm backstop test
+BACKSTOP := docker-compose run --rm backstop --config backstop.config.js
 
-.PHONY: clean
-clean: down
-	rm -rf data
+.PHONY: backstop-test
+backstop-test: wait-for-wiki
+	$(BACKSTOP) test
+
+.PHONY: backstop-approve
+backstop-approve:
+	$(BACKSTOP) approve

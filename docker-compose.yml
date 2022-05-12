@@ -2,14 +2,19 @@ version: '3'
 
 services:
 
+  # Note that BackstopJS testing will only work for the default values
+  # WIKI_DOMAIN=wiki.local and WIKI_PORT=80
+
   wiki:
     image: ghcr.io/gesinn-it-pub/confident:dev
+    build: ./context
     ports:
       - ${WIKI_PORT:-80}:80
     volumes:
       - ./backstop/backstop_data:/var/www/html/backstop
     environment:
-      - WIKI_DOMAIN=${WIKI_DOMAIN:-localhost}
+      - WIKI_DOMAIN=${WIKI_DOMAIN:-wiki.local}
+      - WIKI_PORT=${WIKI_PORT:-80}
       - ELASTICSEARCH_HOST=elasticsearch
       - MYSQL_HOST
 
@@ -31,5 +36,13 @@ services:
     image: backstopjs/backstopjs:6.0.4
     volumes:
       - ./backstop:/src
+    links:
+      - wiki:wiki.local
+    profiles:
+      - no-profile
+
+  wait-for-wiki:
+    image: mintel/docker-wait-for-it
+    entrypoint: ['/opt/wait-for-it.sh', 'wiki:80', '-t', '120']
     profiles:
       - no-profile
