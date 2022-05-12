@@ -18,11 +18,13 @@ const screen = {
 
 
 const scenario = (config) => ({
-	// there are lazily loaded images (CC license button); the following delay helps:
-	delay: 500,
-	// hide "This page was last edited on ..."
-	hideSelectors: ["div#footer-info div"],
-	...config
+	hideSelectors: [
+		// "This page was last edited on ..."
+		"div#footer-info div",
+		// The CC BY-SA button; does not reliably load fast enough
+		'img[alt="CC BY-SA licenses"]',
+	],
+	...config,
 });
 
 module.exports = {
