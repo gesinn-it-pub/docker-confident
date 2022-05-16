@@ -21,6 +21,8 @@ const scenario = (config) => ({
 	hideSelectors: [
 		// "This page was last edited on ..."
 		"div#footer-info div",
+        // Footer version info
+        "div#confident-versions",
 		// The CC BY-SA button; does not reliably load fast enough
 		'img[alt="CC BY-SA licenses"]',
 	],
