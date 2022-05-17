@@ -15,7 +15,7 @@ COPY media/* /var/www/html/_custom/media/
 COPY styles/* /var/www/html/_custom/styles/
 
 # ConfIDentSkin
-ARG CONFIDENT_SKIN_VERSION=1.0.7
+ARG CONFIDENT_SKIN_VERSION=1.0.8
 RUN get-github-extension.sh ConfIDentSkin $CONFIDENT_SKIN_VERSION gesinn-it-pub/ConfIDentSkin
 
 # Temporarily (until 4.2.0 released):
@@ -32,6 +32,6 @@ ENV WIKI_PORT=8080
 ######################################
 # set confident version     		 #
 ######################################
-ARG CONFIDENT_VERSION=1.1.1
+ARG CONFIDENT_VERSION=1.1.2
 RUN echo $CONFIDENT_VERSION > confident-version.txt && \
     echo "\$wgConfidentVersion = '$CONFIDENT_VERSION';" >> LocalSettings.Include.php
