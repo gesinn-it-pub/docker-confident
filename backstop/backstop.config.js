@@ -36,8 +36,26 @@ module.exports = {
 	onReadyScript: "puppet/onReady.js",
 	scenarios: [
 		{
-			label: "Main Page",
+			label: "Main Page Anon",
 			url: "http://wiki.local",
+			"delay": 5000,
+		},
+		{
+			label: "Main Page Logged In",
+			onBeforeScript: "puppet/login.js",
+			url: "http://wiki.local",
+			"delay": 5000,
+		},
+		{
+			label: "Event Form Anon",
+			url: "http://wiki.local/index.php?title=Event:AAAI_1984&action=formedit",
+			"delay": 5000,
+		},
+		{
+			label: "Event Form Logged In",
+			onBeforeScript: "puppet/login.js",
+			url: "http://wiki.local/index.php?title=Event:AAAI_1984&action=formedit",
+			"delay": 5000,
 		},
 	].map(scenario),
 	paths: {
