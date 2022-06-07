@@ -114,7 +114,8 @@ and commit your changes to the repository.
     ARG CONFIDENT_VERSION=5.1.0-alpha1
     ```
 -   Commit your changes with comment "prepared <CONFIDENT_VERSION>"
--   Start a new "release" in GitHub. This will
+-   Run `make release` on the command line **OR** push and start a new "release" in GitHub.
+    This will
     -   run the CI process,
     -   build the Docker image,
     -   and release the image with the correct version tagged

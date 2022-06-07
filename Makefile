@@ -1,7 +1,9 @@
 all:
 
+# ======== CI ========
+
 .PHONY: ci
-ci: build mysql-up backstop-test down
+ci: build mysql-up restore-backup backstop-test down
 
 .PHONY: build
 build:
@@ -35,12 +37,49 @@ stop:
 down:
 	docker-compose down --volumes --remove-orphans
 
-BACKSTOP := docker-compose run --rm backstop --config backstop.config.js
+backstop := docker-compose run --rm backstop --config backstop.config.js
 
 .PHONY: backstop-test
 backstop-test: wait-for-wiki
-	$(BACKSTOP) test
+	$(backstop) test
 
 .PHONY: backstop-approve
 backstop-approve:
-	$(BACKSTOP) approve
+	$(backstop) approve
+
+# ======== Backup ========
+
+backup := docker-compose run --rm backup
+
+.PHONY: create-backup
+create-backup: wait-for-wiki
+	$(backup) create
+
+.PHONY: restore-backup
+restore-backup: wait-for-wiki
+	$(backup) restore
+
+# ======== Release ========
+
+VERSION = `sed -n -e 's/^ARG CONFIDENT_VERSION=//p' ./context/Dockerfile`
+
+.PHONY: release
+release: ci git-push gh-login
+	gh release create $(VERSION)
+
+.PHONY: git-push
+git-push:
+	git diff --quiet || (echo 'git directory has changes'; exit 1)
+	git fetch # make sure we have access to the repository
+	git push
+
+.PHONY: gh-login
+gh-login: require-GH_API_TOKEN
+	gh config set prompt disabled
+	@echo $(GH_API_TOKEN) | gh auth login --with-token
+
+.PHONY: require-GH_API_TOKEN
+require-GH_API_TOKEN:
+ifndef GH_API_TOKEN
+	$(error GH_API_TOKEN is not set)
+endif
