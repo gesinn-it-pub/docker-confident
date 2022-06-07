@@ -1,16 +1,21 @@
 version: '3'
 
+x-variables:
+  - &environment_mysql_root_password MYSQL_ROOT_PASSWORD=database
+  - &volume_wiki_images wiki-images:/var/www/html/images
+
 services:
 
   # Note that BackstopJS testing will only work for the default values
   # WIKI_DOMAIN=wiki.local and WIKI_PORT=80
 
   wiki:
-    image: ghcr.io/gesinn-it-pub/confident:dev
+    image: ghcr.io/gesinn-it-pub/confident:test
     build: ./context
     ports:
       - ${WIKI_PORT:-80}:80
     volumes:
+      - *volume_wiki_images
       - ./backstop/backstop_data:/var/www/html/backstop
     environment:
       - WIKI_DOMAIN=${WIKI_DOMAIN:-wiki.local}
@@ -32,6 +37,18 @@ services:
     profiles:
       - mysql
 
+  backup:
+    image: ghcr.io/gesinn-it/mediawiki-backup:${MEDIAWIKI_BACKUP_VERSION:-latest}
+    volumes:
+      - ./backup:/backup
+      - *volume_wiki_images
+    environment:
+      - MYSQL_HOST=mysql
+      - *environment_mysql_root_password
+      - OWNER=${OWNER:-1000}
+    profiles:
+      - no-up
+
   backstop:
     image: backstopjs/backstopjs:6.0.4
     volumes:
@@ -39,10 +56,13 @@ services:
     links:
       - wiki:wiki.local
     profiles:
-      - no-profile
+      - no-up
 
   wait-for-wiki:
     image: mintel/docker-wait-for-it
     entrypoint: ['/opt/wait-for-it.sh', 'wiki:80', '-t', '120']
     profiles:
-      - no-profile
+      - no-up
+
+volumes:
+  wiki-images:
