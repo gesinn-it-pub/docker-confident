@@ -38,7 +38,7 @@ services:
       - mysql
 
   backup:
-    image: ghcr.io/gesinn-it/mediawiki-backup:${MEDIAWIKI_BACKUP_VERSION:-latest}
+    image: ghcr.io/gesinn-it-pub/mediawiki-backup:${MEDIAWIKI_BACKUP_VERSION:-latest}
     volumes:
       - ./backup:/backup
       - *volume_wiki_images
