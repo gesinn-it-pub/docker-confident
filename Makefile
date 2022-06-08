@@ -1,43 +1,52 @@
+.PHONY: all
 all:
 
-# ======== CI ========
+compose := docker-compose
+compose-run := $(compose) run --rm
 
-.PHONY: ci
-ci: build mysql-up restore-backup backstop-test down
+# ======== Build ========
 
 .PHONY: build
 build:
-	docker-compose build
+	$(compose) build
+
+# ======== Run ========
 
 .PHONY: sqlite-up
 sqlite-up:
-	docker-compose up -d
+	$(compose) up -d
 
 .PHONY: mysql-up
 mysql-up:
-	MYSQL_HOST=mysql docker-compose --profile mysql up -d
+	MYSQL_HOST=mysql $(compose) --profile mysql up -d
 
 .PHONY: wait-for-wiki
 wait-for-wiki:
-	docker-compose run --rm wait-for-wiki
+	$(compose-run) wait-for-wiki
 
 .PHONY: show-status
 show-status:
-	docker-compose ps
+	$(compose) ps
 
 .PHONY: show-logs
 show-logs:
-	docker-compose logs -f || exit 0
+	$(compose) logs -f || exit 0
 
 .PHONY: stop
 stop:
-	docker-compose stop
+	$(compose) stop
 
 .PHONY: down
 down:
-	docker-compose down --volumes --remove-orphans
+	$(compose) down
 
-backstop := docker-compose run --rm backstop --config backstop.config.js
+.PHONY: destroy
+destroy:
+	$(compose) down --volumes --remove-orphans
+
+# ======== Backstop ========
+
+backstop := $(compose-run) backstop --config backstop.config.js
 
 .PHONY: backstop-test
 backstop-test: wait-for-wiki
@@ -49,7 +58,7 @@ backstop-approve:
 
 # ======== Backup ========
 
-backup := docker-compose run --rm backup
+backup := $(compose) pull backup && $(compose-run) backup
 
 .PHONY: create-backup
 create-backup: wait-for-wiki
@@ -58,6 +67,11 @@ create-backup: wait-for-wiki
 .PHONY: restore-backup
 restore-backup: wait-for-wiki
 	$(backup) restore
+
+# ======== CI ========
+
+.PHONY: ci
+ci: build mysql-up restore-backup backstop-test destroy
 
 # ======== Release ========
 
