@@ -7,6 +7,12 @@
 ## Group permissions
 $wgGroupPermissions['*']['read'] = true;
 $wgGroupPermissions['*']['edit'] = false;
+$wgNamespaceProtection[10] = ['editinterface'];                 // TEMPLATE
+$wgNamespaceProtection[14] = ['editinterface'];                 // CATEGORY
+$wgNamespaceProtection[102] = ['editinterface'];                // PROPERTY
+$wgNamespaceProtection[106] = ['editinterface'];                // FORM
+$wgNamespaceProtection[108] = ['editinterface'];                // CONCEPT
+$wgNamespaceProtection[NS_PROJECT] = ['editinterface'];			// ConfIDent
 
 ## Timezone
 $wgLocaltimezone = "Europe/Berlin";
@@ -38,6 +44,16 @@ wfLoadExtension( 'ConfIDentSkin' );
 $wgLogos = [
 	"1x" => "$wgScriptPath/_custom/media/ConfIDent_Logo.png",
 ];
+
+## Footer Links (legal)
+$wgHooks['SkinAddFooterLinks'][] = function ( Skin $skin, string $key, array &$footerlinks ) {
+	if ( $key === 'places' ) {
+		$footerlinks['terms-of-use'] = $skin->footerLink( 'CONF Terms of Use-link', 'CONF Terms of use-page');
+		$footerlinks['data-protection-info'] = $skin->footerLink( 'CONF Data Protection Info-link', 'CONF Data Protection Info-page' );
+		$footerlinks['declaration-on-accessibility'] = $skin->footerLink( 'CONF Declaration on Accessibility-link', 'CONF Declaration on Accessibility-page' );
+		$footerlinks['imprint'] = $skin->footerLink( 'CONF Imprint-link', 'CONF Imprint-page' );
+	};
+};
 
 ## Footer Icons
 $wgFooterIcons['partner']['TIB'] = [
