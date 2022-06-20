@@ -113,6 +113,12 @@ $wgCaptchaQuestions[] = array( "question" => "Germany's highest mountain?", "ans
 $wgCaptchaQuestions[] = array( "question" => "Germany's capital?", "answer" => "Berlin");
 ## ======== ConfirmEdit ========
 
+## -------- CookieWarning --------
+wfLoadExtension( 'CookieWarning' );
+$wgCookieWarningEnabled = true;
+#$wgCookieWarningMoreUrl = 'https://gesinn.it/de/gesinn.it:Datenschutz';
+## ======== CookieWarning ========
+
 ## -------- DisplayTitle --------
 $wgAllowDisplayTitle = true;
 $wgRestrictDisplayTitle = false;
