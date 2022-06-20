@@ -165,6 +165,10 @@ $wgJSBreadCrumbsHorizontalSeparator = '>';
 $egLoopsCountLimit = 1000;
 ## ======== Loops ========
 
+## -------- Matomo --------
+wfLoadExtension( 'Matomo' );
+## ======== Matomo ========
+
 ## -------- PageForms --------
 $wgPageFormsAutocompleteOnAllChars = true;
 $wgPageFormsMaxAutocompleteValues = 3000;;
