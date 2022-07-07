@@ -8,11 +8,11 @@ FROM ghcr.io/gesinn-it-pub/openresearch-stack:${OPENRESEARCH_STACK}
 # LocalSettings.Custom.php
 ADD LocalSettings.Custom.php /var/www/html/
 
-# Media
-COPY media/* /var/www/html/_custom/media/
+# Media (do not use styles/* otherwise directory structure will be flattened)
+COPY media /var/www/html/_custom/media
 
-# Styles
-COPY styles/* /var/www/html/_custom/styles/
+# Styles (do not use styles/* otherwise directory structure will be flattened)
+COPY styles /var/www/html/_custom/styles
 
 # ConfIDentSkin
 ARG CONFIDENT_SKIN_VERSION=1.0.9
