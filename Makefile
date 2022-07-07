@@ -1,8 +1,8 @@
 .PHONY: all
 all:
 
-compose := docker-compose
-compose-run := $(compose) run --rm
+compose = docker-compose $(COMPOSE_ARGS)
+compose-run = $(compose) run --rm
 
 # ======== Build ========
 
@@ -46,7 +46,7 @@ destroy:
 
 # ======== Backstop ========
 
-backstop := $(compose-run) backstop --config backstop.config.js
+backstop = $(compose-run) backstop --config backstop.config.js
 
 .PHONY: backstop-test
 backstop-test: wait-for-wiki
@@ -58,7 +58,7 @@ backstop-approve:
 
 # ======== Backup ========
 
-backup := $(compose) pull backup && $(compose-run) backup
+backup = $(compose) pull backup && $(compose-run) backup
 
 .PHONY: create-backup
 create-backup: wait-for-wiki
@@ -71,7 +71,14 @@ restore-backup: wait-for-wiki
 # ======== CI ========
 
 .PHONY: ci
-ci: build mysql-up restore-backup backstop-test destroy
+ci: down build
+	$(MAKE) with-ci destroy mysql-up restore-backup backstop-test
+	$(MAKE) with-ci destroy
+	$(eval COMPOSE_ARGS = )
+
+.PHONY: with-ci
+with-ci:
+	$(eval COMPOSE_ARGS = -p docker-semantic-core-ci)
 
 # ======== Release ========
 
