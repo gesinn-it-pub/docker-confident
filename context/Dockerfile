@@ -2,7 +2,7 @@
 # docker-confident                   #
 ######################################
 
-ARG OPENRESEARCH_STACK=0.0.13
+ARG OPENRESEARCH_STACK=0.0.14
 FROM ghcr.io/gesinn-it-pub/openresearch-stack:${OPENRESEARCH_STACK}
 
 # LocalSettings.Custom.php
