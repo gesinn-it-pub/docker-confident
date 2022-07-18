@@ -172,7 +172,7 @@ wfLoadExtension( 'Matomo' );
 ## -------- PageForms --------
 $wgPageFormsAutocompleteOnAllChars = true;
 $wgPageFormsMaxAutocompleteValues = 3000;;
-$wgPageFormsMaxLocalAutocompleteValues = 5000;
+$wgPageFormsMaxLocalAutocompleteValues = 25;
 $wgPageForms24HourTime = true;
 $wgPageFormsListSeparator = ";";
 ## ======== PageForms ========
