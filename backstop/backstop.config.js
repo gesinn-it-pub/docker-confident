@@ -35,28 +35,92 @@ module.exports = {
 	onBeforeScript: "puppet/onBefore.js",
 	onReadyScript: "puppet/onReady.js",
 	scenarios: [
+        {
+            "label": "Navbar Anon",
+            "url": "http://wiki.local",
+            "selectors": [
+                "nav.p-navbar",
+            ],
+            "delay": 5000,
+        },
+        {
+            "label": "Navbar Logged In",
+            "onBeforeScript": "puppet/login.js",
+            "url": "http://wiki.local",
+            "selectors": [
+                "nav.p-navbar",
+            ],
+            "delay": 5000,
+        },
+
 		{
-			label: "Main Page Anon",
-			url: "http://wiki.local",
-			"delay": 14000,
+			"label": "Main Page Anon",
+			"url": "http://wiki.local",
+            "selectors": [
+                "#confident-content",
+            ],
+			"delay": 5000,
 		},
 		{
-			label: "Main Page Logged In",
-			onBeforeScript: "puppet/login.js",
-			url: "http://wiki.local",
-			"delay": 14000,
+			"label": "Main Page Logged In",
+			"onBeforeScript": "puppet/login.js",
+			"url": "http://wiki.local",
+            "selectors": [
+                "#confident-content",
+            ],
+            "delay": 5000,
+		},
+
+		{
+			"label": "Event Form Anon",
+			"url": "http://wiki.local/index.php?title=Event:AAAI_1984&action=formedit",
+            "selectors": [
+                "#confident-content",
+            ],
+            "delay": 5000,
 		},
 		{
-			label: "Event Form Anon",
-			url: "http://wiki.local/index.php?title=Event:AAAI_1984&action=formedit",
-			"delay": 14000,
+			"label": "Event Form Logged In",
+			"onBeforeScript": "puppet/login.js",
+			"url": "http://wiki.local/index.php?title=Event:AAAI_1984&action=formedit",
+            "selectors": [
+                "#confident-content",
+            ],
+            "delay": 5000,
 		},
-		{
-			label: "Event Form Logged In",
-			onBeforeScript: "puppet/login.js",
-			url: "http://wiki.local/index.php?title=Event:AAAI_1984&action=formedit",
-			"delay": 14000,
-		},
+
+        {
+            "label": "Footer Anon",
+            "url": "http://wiki.local",
+            "selectors": [
+                "#confident-footer",
+            ],
+            "hideSelectors": [
+                ".mw-cookiewarning-container",
+            ],
+            "delay": 5000,
+        },
+        {
+            "label": "Footer Logged In",
+            "onBeforeScript": "puppet/login.js",
+            "url": "http://wiki.local",
+            "selectors": [
+                "#confident-footer",
+            ],
+            "hideSelectors": [
+                ".mw-cookiewarning-container",
+            ],
+            "delay": 5000,
+        },
+
+        {
+            "label": "Cookie Warning Anon",
+            "url": "http://wiki.local",
+            "selectors": [
+                ".mw-cookiewarning-container",
+            ],
+            "delay": 5000,
+        },
 	].map(scenario),
 	paths: {
 		bitmaps_reference: "backstop_data/bitmaps_reference",
