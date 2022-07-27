@@ -8,6 +8,9 @@ FROM ghcr.io/gesinn-it-pub/openresearch-stack:${OPENRESEARCH_STACK}
 # LocalSettings.Custom.php
 ADD LocalSettings.Custom.php /var/www/html/
 
+# Global styles
+COPY mediawiki-global-styles/styles/* /var/www/html/resources/src/mediawiki.gesinn-it.global.styles/
+
 # Media (do not use styles/* otherwise directory structure will be flattened)
 COPY media /var/www/html/_custom/media
 

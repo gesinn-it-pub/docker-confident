@@ -81,12 +81,20 @@ $wgFooterIcons['partner']['DFG'] = [
 ];
 
 ## Custom Styles
+$egChameleonThemeFile = __DIR__ . "/resources/src/mediawiki.gesinn-it.global.styles/_theme-default.scss";
+
+// Global Styles
+$egChameleonExternalStyleModules = [
+    __DIR__ . "/resources/src/mediawiki.gesinn-it.global.styles/bootstrap-panel.scss" => 'afterMain',
+    __DIR__ . "/resources/src/mediawiki.gesinn-it.global.styles/extension-JSBreadCrumbs.scss" => 'afterMain',
+    __DIR__ . "/resources/src/mediawiki.gesinn-it.global.styles/extension-PageForms.scss" => 'afterMain',
+    __DIR__ . "/resources/src/mediawiki.gesinn-it.global.styles/extension-SemanticResultFormats.scss" => 'afterMain',
+    __DIR__ . "/resources/src/mediawiki.gesinn-it.global.styles/mediawiki.scss" => 'afterMain',
+];
+
+// Local styles
 $egChameleonExternalStyleModules = [
 	__DIR__ . "/_custom/styles/confident/confident.scss" => 'afterMain',
-	__DIR__ . "/_custom/styles/extension-JSBreadCrumbs.scss" => 'afterMain',
-	__DIR__ . "/_custom/styles/extension-PageForms.scss" => 'afterMain',
-	__DIR__ . "/_custom/styles/panels.scss" => 'afterMain',
-	__DIR__ . "/_custom/styles/tiles.scss" => 'afterMain',
 	__DIR__ . "/_custom/styles/confident/navbar.scss" => 'afterVariables',
 ];
 

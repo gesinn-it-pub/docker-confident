@@ -1,0 +1,6 @@
+[submodule "ConfIDentSkin"]
+	path = ConfIDentSkin
+	url = git@github.com:gesinn-it-pub/ConfIDentSkin.git
+[submodule "context/mediawiki-global-styles"]
+	path = context/mediawiki-global-styles
+	url = git@github.com:gesinn-it-pub/mediawiki-global-styles.git
