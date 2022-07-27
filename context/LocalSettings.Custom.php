@@ -84,7 +84,7 @@ $wgFooterIcons['partner']['DFG'] = [
 $egChameleonThemeFile = __DIR__ . "/resources/src/mediawiki.gesinn-it.global.styles/_theme-default.scss";
 
 // Global Styles
-$egChameleonExternalStyleModules = [
+$egChameleonExternalStyleModulesGlobal = [
     __DIR__ . "/resources/src/mediawiki.gesinn-it.global.styles/bootstrap-panel.scss" => 'afterMain',
     __DIR__ . "/resources/src/mediawiki.gesinn-it.global.styles/extension-JSBreadCrumbs.scss" => 'afterMain',
     __DIR__ . "/resources/src/mediawiki.gesinn-it.global.styles/extension-PageForms.scss" => 'afterMain',
@@ -93,11 +93,12 @@ $egChameleonExternalStyleModules = [
 ];
 
 // Local styles
-$egChameleonExternalStyleModules = [
+$egChameleonExternalStyleModulesLocal = [
 	__DIR__ . "/_custom/styles/confident/confident.scss" => 'afterMain',
 	__DIR__ . "/_custom/styles/confident/navbar.scss" => 'afterVariables',
 ];
 
+$egChameleonExternalStyleModules = array_merge($egChameleonExternalStyleModulesGlobal, $egChameleonExternalStyleModulesLocal);
 
 ######################################
 # Extensions Settings                #

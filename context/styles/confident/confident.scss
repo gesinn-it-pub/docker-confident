@@ -3,6 +3,15 @@ body {
   overflow-x: hidden;
 }
 
+// Body
+.mw-body {
+  padding: 0 1rem;
+}
+
+.contentHeader {
+  padding: 0 1rem;
+}
+
 // First Heading --------------------------------
 // Main Page
 body.page-Main_Page h1#firstHeading {
