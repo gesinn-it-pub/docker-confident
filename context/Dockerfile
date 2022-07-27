@@ -35,6 +35,6 @@ ENV WIKI_PORT=8080
 ######################################
 # set confident version     		 #
 ######################################
-ARG CONFIDENT_VERSION=1.6.2
+ARG CONFIDENT_VERSION=1.7.0
 RUN echo $CONFIDENT_VERSION > confident-version.txt && \
     echo "\$wgConfidentVersion = '$CONFIDENT_VERSION';" >> LocalSettings.Include.php
