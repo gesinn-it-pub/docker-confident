@@ -248,7 +248,8 @@ $wgGroupPermissions["bureaucrat"]["usermerge"] = true;
 $customNamespaces = [
 	7100 => 'Event_Series',
 	7200 => 'Event',
-	7300 => 'Academic_Field'
+	7300 => 'Academic_Field',
+    7400 => 'Country'
 ];
 
 ## Apply Namespaces
