@@ -97,6 +97,7 @@ module.exports = {
             ],
             "hideSelectors": [
                 ".mw-cookiewarning-container",
+                "#confident-versions",
             ],
             "delay": 5000,
         },
@@ -109,6 +110,7 @@ module.exports = {
             ],
             "hideSelectors": [
                 ".mw-cookiewarning-container",
+                "#confident-versions",
             ],
             "delay": 5000,
         },
