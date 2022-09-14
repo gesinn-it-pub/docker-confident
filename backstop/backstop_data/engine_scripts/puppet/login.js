@@ -6,5 +6,4 @@ module.exports = async (page, scenario) => {
     await page.click('button#wpLoginAttempt');
     await page.waitForTimeout(20000);
     await page.goto(scenario.url);
-    await page.waitForTimeout(5000);
 };

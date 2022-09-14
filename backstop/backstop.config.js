@@ -36,7 +36,8 @@ module.exports = {
 	onReadyScript: "puppet/onReady.js",
 	scenarios: [
         {
-            "label": "Navbar Anon",
+            "label": "Navbar Logged In",
+            "onBeforeScript": "puppet/login.js",
             "url": "http://wiki.local",
             "selectors": [
                 "nav.p-navbar",
@@ -44,8 +45,7 @@ module.exports = {
             "delay": 5000,
         },
         {
-            "label": "Navbar Logged In",
-            "onBeforeScript": "puppet/login.js",
+            "label": "Navbar Anon",
             "url": "http://wiki.local",
             "selectors": [
                 "nav.p-navbar",
