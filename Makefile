@@ -3,6 +3,9 @@ all:
 
 compose = docker-compose $(COMPOSE_ARGS)
 compose-run = $(compose) run --rm
+compose-exec = $(compose) exec -T
+compose-cp = docker compose cp
+wiki-exec = $(compose-exec) wiki
 
 # ======== Build ========
 
@@ -72,13 +75,17 @@ restore-backup: wait-for-wiki
 
 .PHONY: ci
 ci: down build
-	$(MAKE) with-ci destroy mysql-up restore-backup backstop-test
+	$(MAKE) with-ci destroy mysql-up disable-opcache restore-backup backstop-test
 	$(MAKE) with-ci destroy
 	$(eval COMPOSE_ARGS = )
 
 .PHONY: with-ci
 with-ci:
 	$(eval COMPOSE_ARGS = -p docker-semantic-core-ci)
+
+.PHONY: disable-opcache
+disable-opcache:
+	$(wiki-exec) disable-opcache.sh
 
 # ======== Release ========
 
