@@ -36,6 +36,24 @@ module.exports = {
 	onReadyScript: "puppet/onReady.js",
 	scenarios: [
         {
+            "label": "Main Page Anon",
+            "url": "http://wiki.local",
+            "selectors": [
+                "#confident-content",
+            ],
+            "delay": 5000,
+        },
+        {
+            "label": "Main Page Logged In",
+            "onBeforeScript": "puppet/login.js",
+            "url": "http://wiki.local",
+            "selectors": [
+                "#confident-content",
+            ],
+            "delay": 5000,
+        },
+
+        {
             "label": "Navbar Logged In",
             "onBeforeScript": "puppet/login.js",
             "url": "http://wiki.local",
@@ -52,24 +70,6 @@ module.exports = {
             ],
             "delay": 5000,
         },
-
-		{
-			"label": "Main Page Anon",
-			"url": "http://wiki.local",
-            "selectors": [
-                "#confident-content",
-            ],
-			"delay": 5000,
-		},
-		{
-			"label": "Main Page Logged In",
-			"onBeforeScript": "puppet/login.js",
-			"url": "http://wiki.local",
-            "selectors": [
-                "#confident-content",
-            ],
-            "delay": 5000,
-		},
 
 		{
 			"label": "Event Form Anon",
