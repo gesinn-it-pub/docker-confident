@@ -250,7 +250,8 @@ $customNamespaces = [
 	7100 => 'Event_Series',
 	7200 => 'Event',
 	7300 => 'Academic_Field',
-    7400 => 'Country'
+    7400 => 'Country',
+    7500 => 'Organization'
 ];
 
 ## Apply Namespaces
