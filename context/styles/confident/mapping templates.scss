@@ -1,7 +1,11 @@
 // MT Date Time Table
+.mt-date-table-container {
+  display: inline;
+}
+
 .mt-date-table {
   width: 4.5rem;
-  margin-bottom: 8px;
+  margin: 0 1.5rem 0 1.5rem;
 }
 
 .mt-date-table-top {
@@ -18,7 +22,7 @@
 }
 
 .mt-date-table-caption {
-  padding-left: 8px;
-  vertical-align: bottom;
-  padding-bottom: 18px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  width: 5rem;
 }
