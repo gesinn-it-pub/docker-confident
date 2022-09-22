@@ -1,0 +1,22 @@
+// MT Date Time Table
+.mt-date-table-top {
+  background-color: $gray-400;
+  text-align: center;
+  font-weight: bold;
+  font-size: large;
+  padding: 2px 8px;
+}
+
+.mt-date-table-bottom {
+  background-color: $gray-800;
+  color: #FFF;
+  text-align: center;
+  font-weight: bold;
+  font-size: x-small;
+  white-space: nowrap;
+  padding: 2px 8px;
+}
+
+.mt-date-table-caption {
+  padding-left: 8px;
+}

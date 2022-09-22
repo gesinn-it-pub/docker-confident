@@ -95,6 +95,7 @@ $egChameleonExternalStyleModulesGlobal = [
 // Local styles
 $egChameleonExternalStyleModulesLocal = [
 	__DIR__ . "/_custom/styles/confident/confident.scss" => 'afterMain',
+    __DIR__ . "/_custom/styles/confident/mapping templates.scss" => 'afterMain',
 	__DIR__ . "/_custom/styles/confident/navbar.scss" => 'afterVariables',
 ];
 
