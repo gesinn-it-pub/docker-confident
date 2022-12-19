@@ -7,6 +7,13 @@
 ## Group permissions
 $wgGroupPermissions['*']['read'] = true;
 $wgGroupPermissions['*']['edit'] = false;
+$wgGroupPermissions['approver-event']['read'] = true;
+$wgGroupPermissions['approver-event']['approverevisions'] = true;
+$wgGroupPermissions['approver-event-series']['read'] = true;
+$wgGroupPermissions['approver-event-series']['approverevisions'] = true;
+$wgGroupPermissions['approver-academic-field']['read'] = true;
+$wgGroupPermissions['approver-academic-field']['approverevisions'] = true;
+
 $wgNamespaceProtection[10] = ['editinterface'];                 // TEMPLATE
 $wgNamespaceProtection[14] = ['editinterface'];                 // CATEGORY
 $wgNamespaceProtection[102] = ['editinterface'];                // PROPERTY
