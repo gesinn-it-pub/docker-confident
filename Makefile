@@ -13,6 +13,12 @@ wiki-exec = $(compose-exec) wiki
 build:
 	$(compose) build
 
+# ======== Develop ========
+
+.PHONY: bash
+bash:
+	$(compose) exec wiki bash
+
 # ======== Run ========
 
 .PHONY: sqlite-up
