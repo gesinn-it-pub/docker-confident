@@ -73,7 +73,7 @@ module.exports = {
 
 		{
 			"label": "Event Form Anon",
-			"url": "http://wiki.local/index.php?title=Event:AAAI_1984&action=formedit",
+			"url": "http://wiki.local/index.php?title=Event:4e1f3e0e-825d-45f7-b23b-42a4dfa497ed&action=formedit",
             "selectors": [
                 "#confident-content",
             ],
@@ -82,7 +82,7 @@ module.exports = {
 		{
 			"label": "Event Form Logged In",
 			"onBeforeScript": "puppet/login.js",
-			"url": "http://wiki.local/index.php?title=Event:AAAI_1984&action=formedit",
+			"url": "http://wiki.local/index.php?title=Event:4e1f3e0e-825d-45f7-b23b-42a4dfa497ed&action=formedit",
             "selectors": [
                 "#confident-content",
             ],
