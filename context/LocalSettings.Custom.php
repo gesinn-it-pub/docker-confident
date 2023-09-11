@@ -117,13 +117,22 @@ $egArraysCompatibilityMode = false;
 $egArraysExpansionEscapeTemplates = null;
 ## ======== Arrays ========
 
+## -------- ConfirmAccount --------
+wfLoadExtension( 'ConfirmAccount' );
+$wgConfirmAccountRequestFormItems['Biography']['enabled'] = false;
+$wgConfirmAccountRequestFormItems['CV']['enabled'] = false;
+$wgGroupPermissions['*']['createaccount'] = false;
+$wgGroupPermissions['bureaucrat']['createaccount'] = true;
+$wgConfirmAccountContact = 'confident@tib.eu';
+## ======== ConfirmAccount ========
+
 ## -------- ConfirmEdit --------
-# wfLoadExtensions([ 'ConfirmEdit', 'ConfirmEdit/QuestyCaptcha' ]);
+wfLoadExtensions([ 'ConfirmEdit', 'ConfirmEdit/QuestyCaptcha' ]);
 $wgCaptchaClass = "QuestyCaptcha";
-$wgCaptchaTriggers['edit']          = true;
-$wgCaptchaTriggers['create']        = true;
-$wgCaptchaTriggers['createtalk']    = true;
-$wgCaptchaTriggers['addurl']        = true;
+#$wgCaptchaTriggers['edit']          = true;
+#$wgCaptchaTriggers['create']        = true;
+#$wgCaptchaTriggers['createtalk']    = true;
+#$wgCaptchaTriggers['addurl']        = true;
 $wgCaptchaTriggers['createaccount'] = true;
 $wgCaptchaTriggers['badlogin']      = true;
 $wgCaptchaQuestions[] = array( "question" => "Germany's highest mountain?", "answer" => "Zugspitze");
