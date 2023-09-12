@@ -19,6 +19,11 @@ body.ns-14 h1#firstHeading {
   //      display: none;
 }
 
+// Content Sub
+div#contentSub {
+  margin-bottom: 10px;
+}
+
 // Lead Text ------------------------------------
 .lead {
   font-size: 1.5em;
@@ -54,4 +59,9 @@ body.ns-14 h1#firstHeading {
   right: 50%;
   margin-left: -50vw;
   margin-right: -50vw;
+}
+
+// Cards
+.card-body {
+  overflow: hidden;
 }

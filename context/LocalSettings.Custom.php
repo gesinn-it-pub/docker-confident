@@ -102,6 +102,7 @@ $egChameleonExternalStyleModulesGlobal = [
 // Local styles
 $egChameleonExternalStyleModulesLocal = [
 	__DIR__ . "/_custom/styles/confident/confident.scss" => 'afterMain',
+    __DIR__ . "/_custom/styles/confident/extension-ApprovedRevs.scss" => 'afterMain',
     __DIR__ . "/_custom/styles/confident/mapping templates.scss" => 'afterMain',
 	__DIR__ . "/_custom/styles/confident/navbar.scss" => 'afterVariables',
 ];
@@ -111,6 +112,10 @@ $egChameleonExternalStyleModules = array_merge($egChameleonExternalStyleModulesG
 ######################################
 # Extensions Settings                #
 ######################################
+
+## -------- ApprovedRevs --------
+$egApprovedRevsShowNotApprovedMessage = false;
+## ======== ApprovedRevs ========
 
 ## -------- Arrays --------
 $egArraysCompatibilityMode = false;
