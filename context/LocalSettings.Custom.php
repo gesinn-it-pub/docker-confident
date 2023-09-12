@@ -144,6 +144,8 @@ $wgCaptchaTriggers['createaccount'] = true;
 $wgCaptchaTriggers['badlogin']      = true;
 $wgCaptchaQuestions[] = array( "question" => "Germany's highest mountain?", "answer" => "Zugspitze");
 $wgCaptchaQuestions[] = array( "question" => "Germany's capital?", "answer" => "Berlin");
+$wgCaptchaQuestions[] = array( "question" => "What color is the sky during the day?", "answer" => "Blue");
+$wgCaptchaQuestions[] = array( "question" => "What is the opposite of left?", "answer" => "Right");
 ## ======== ConfirmEdit ========
 
 ## -------- CookieWarning --------
