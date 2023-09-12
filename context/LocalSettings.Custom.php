@@ -126,9 +126,11 @@ $egArraysExpansionEscapeTemplates = null;
 wfLoadExtension( 'ConfirmAccount' );
 $wgConfirmAccountRequestFormItems['Biography']['enabled'] = false;
 $wgConfirmAccountRequestFormItems['CV']['enabled'] = false;
+$wgConfirmAccountRequestFormItems['RealName']['enabled'] = false;
+$wgConfirmAccountRequestFormItems['Links']['enabled'] = false;
 $wgGroupPermissions['*']['createaccount'] = false;
 $wgGroupPermissions['bureaucrat']['createaccount'] = true;
-$wgConfirmAccountContact = 'confident@tib.eu';
+$wgConfirmAccountContact = 'registration.confident@tib.eu';
 ## ======== ConfirmAccount ========
 
 ## -------- ConfirmEdit --------
