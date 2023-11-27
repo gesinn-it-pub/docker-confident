@@ -2,7 +2,7 @@
 # docker-confident                   #
 ######################################
 
-ARG OPENRESEARCH_STACK=0.0.31
+ARG OPENRESEARCH_STACK=0.0.32
 FROM ghcr.io/gesinn-it-pub/openresearch-stack:${OPENRESEARCH_STACK}
 
 # LocalSettings.Custom.php
@@ -30,6 +30,6 @@ ENV WIKI_PORT=8080
 ######################################
 # set confident version     		 #
 ######################################
-ARG CONFIDENT_VERSION=1.9.11
+ARG CONFIDENT_VERSION=1.9.12
 RUN echo $CONFIDENT_VERSION > confident-version.txt && \
     echo "\$wgConfidentVersion = '$CONFIDENT_VERSION';" >> LocalSettings.Include.php
