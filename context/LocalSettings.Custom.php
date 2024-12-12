@@ -49,7 +49,7 @@ wfLoadExtension( 'ConfIDentSkin' );
 
 ## Logo
 $wgLogos = [
-	"1x" => "$wgScriptPath/_custom/media/ConfIDent_Logo.png",
+	"1x" => "$wgScriptPath/_custom/media/ConfIDent_TIB_Logo.png",
 ];
 
 ## Footer Links (legal)
@@ -88,7 +88,7 @@ $wgFooterIcons['partner']['DFG'] = [
 ];
 
 ## Custom Styles
-$egChameleonThemeFile = __DIR__ . "/resources/src/mediawiki.gesinn-it.global.styles/_theme-default.scss";
+$egChameleonThemeFile = __DIR__ . "/_custom/styles/_theme-confident.scss";
 
 // Global Styles
 $egChameleonExternalStyleModulesGlobal = [
@@ -106,6 +106,7 @@ $egChameleonExternalStyleModulesLocal = [
     __DIR__ . "/_custom/styles/confident/mapping templates.scss" => 'afterMain',
 	__DIR__ . "/_custom/styles/confident/navbar.scss" => 'afterVariables',
 ];
+
 
 $egChameleonExternalStyleModules = array_merge($egChameleonExternalStyleModulesGlobal, $egChameleonExternalStyleModulesLocal);
 

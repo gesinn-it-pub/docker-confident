@@ -1,3 +1,15 @@
+// set padding for navbar
+body .navbar, .p-navbar {
+  padding: 3rem 1.5rem;
+}
+// unset logo size not to corrupt the img size
+body .p-navbar .navbar-brand.p-logo {
+  height: unset;
+}
+// set the logo size by setting the img size
+body .p-navbar .navbar-brand img {
+  height: 2.5rem;
+}
 // Navbar items bold
 a.nav-link {
   font-weight: bold;

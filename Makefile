@@ -13,6 +13,11 @@ wiki-exec = $(compose-exec) wiki
 build:
 	$(compose) build
 
+.PHONY: touch
+touch:
+	$(show-current-target)
+	$(compose) exec wiki touch LocalSettings.php
+
 # ======== Develop ========
 
 .PHONY: bash
