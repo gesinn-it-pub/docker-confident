@@ -4,3 +4,6 @@
 [submodule "context/mediawiki-global-styles"]
 	path = context/mediawiki-global-styles
 	url = git@github.com:gesinn-it-pub/mediawiki-global-styles.git
+[submodule "build"]
+	path = build
+	url = https://github.com/gesinn-it-pub/docker-compose-ci.git
