@@ -11,11 +11,19 @@ jobs:
   test:
     runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
         with:
           submodules: recursive
-      - run: make ci
-      - uses: actions/upload-artifact@v4
+        
+      - name: Update submodules
+        run: git submodule update --init --remote
+
+      - name: Run tests 
+        run: make ci
+
+      - name: Upload artifact 
+        uses: actions/upload-artifact@v4
         with:
           name: BackstopJS
           path: backstop/backstop_data
