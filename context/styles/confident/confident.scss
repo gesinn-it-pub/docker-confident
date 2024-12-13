@@ -1,11 +1,43 @@
+// hide LLM chunk templates
+div.chunks {
+  display:none;
+}
+
+// temp changes for Event Query form
+div#row-Query_Event-Academic_Field span.pfTokens {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+div.sfFieldContent p {
+  margin: 0px !important;
+}
+
+div#row-Query_Event-Country div.oo-ui-inputWidget {
+  min-width: 600px !important;
+}
+
+div#row-Query_Event-Title_Contains input.createboxInput {
+  min-width: 600px !important;
+}
+
 // No horizontal scroll -------------------------
 body {
   overflow-x: hidden;
 }
 
 // Body
+body {
+  background-color: #F2F3F3
+}
+
 #confident-content {
   padding: 0 30px;
+  max-width: 1400px;
+}
+
+#confident-footer {
+  background-color: white;
 }
 
 // First Heading --------------------------------
@@ -15,8 +47,15 @@ body.page-Main_Page h1#firstHeading {
 }
 
 // ns-14 (Category)
-body.ns-14 h1#firstHeading {
-  //      display: none;
+body .ns-14 .firstHeading {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+// Add some padding to title icons in first headings
+.firstHeading img {
+  padding-bottom: 6px;
+  opacity: 0.7;
 }
 
 // Content Sub
@@ -26,8 +65,86 @@ div#contentSub {
 
 // Lead Text ------------------------------------
 .lead {
-  font-size: 1.5em;
+  font-size: 2rem;
   font-weight: bold;
+}
+
+.lead-large {
+  font-size: 3rem;
+}
+
+// Add some padding to title icons in search results
+.mw-search-result-heading img {
+  padding-bottom: 6px;
+  opacity: 0.7;
+}
+
+div.use-case-tile, div.browse-tile {
+  width:320px;
+  padding-top: 2rem;
+  border: none;
+}
+
+div.use-case-nav-tile {
+  width:120px;
+  border: none;
+  border-top-left-radius: 0 !important;
+  border-top-right-radius: 0 !important;
+}
+
+div.use-case-nav-tile-muted {
+  opacity: 40%;
+  font-size: 85%;
+}
+
+div.use-case-nav-tile .card-body {
+  color: white;
+  padding: 0;
+}
+
+div.use-case-tile a:link, div.use-case-tile a:visited, div.use-case-tile a:hover, div.use-case-tile a:active {
+  color: #fff;
+}
+
+div.use-case-nav-tile a:link, div.use-case-nav-tile a:visited, div.use-case-nav-tile a:hover, div.use-case-nav-tile a:active, div.use-case-nav-tile a.selflink {
+  color: #fff;
+}
+
+div.browse-tile a:link, div.browse-tile a:visited, div.browse-tile a:hover, div.browse-tile a:active {
+  color: #fff;
+}
+
+.bg-find {
+  background: linear-gradient(166deg, rgba(65,86,163,1) 0%, rgba(63,188,202,1) 100%);
+}
+
+.bg-browse {
+  background: linear-gradient(166deg, rgba(63,188,202,1) 0%, rgba(163,62,108,1) 100%);
+}
+
+.bg-announce {
+  background: linear-gradient(166deg, rgba(163,62,108,1) 0%, rgba(63,81,163,1) 100%);
+}
+
+.circle {
+  display: inline-block;
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+  background: linear-gradient(166deg, rgba(65,86,163,1) 0%, rgba(63,188,202,1) 100%);
+  color: white;
+  text-align: center;
+  font-weight: bold;
+}
+
+.g-events-this-month .filtered-filter {
+  border: none;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.g-events-this-month .filtered-filter-label {
+  padding: 0;
 }
 
 // Spacer ---------------------------------------
@@ -49,6 +166,10 @@ div#contentSub {
 
 .spacer-5 {
   height: 5em;
+}
+
+.spacer-10 {
+  height: 10rem;
 }
 
 // neg-margins ----------------------------------
