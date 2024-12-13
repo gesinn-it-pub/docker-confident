@@ -19,6 +19,11 @@ build:
 bash:
 	$(compose) exec wiki bash
 
+.PHONY: touch
+touch:
+	$(show-current-target)
+	$(compose) exec wiki touch LocalSettings.php
+
 # ======== Run ========
 
 .PHONY: sqlite-up
